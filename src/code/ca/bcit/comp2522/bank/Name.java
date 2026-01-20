@@ -3,6 +3,7 @@ package ca.bcit.comp2522.bank;
 /**
  * This class models the full name in someone's bank account
  * @author Bennett Lazarro Set D
+ * @author Abdullah Munawar Set D
  * @version 1.0
  */
 public class Name
