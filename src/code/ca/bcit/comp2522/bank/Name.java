@@ -101,8 +101,8 @@ public class Name
         return first_name.substring(BEGIN_INDEX, END_INDEX).toUpperCase()
                 + first_name.substring(END_INDEX).toLowerCase()
                 + " "
-                + last_name.substring(BEGIN_INDEX, END_INDEX).toLowerCase()
-                + last_name.substring(END_INDEX);
+                + last_name.substring(BEGIN_INDEX, END_INDEX).toUpperCase()
+                + last_name.substring(END_INDEX).toLowerCase();
     }
 
     /**

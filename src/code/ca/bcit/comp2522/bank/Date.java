@@ -157,9 +157,37 @@ public class Date
      * Returns the date's month.
      * @return the date's month
      */
-    public int getMonth()
+    public String getMonth()
     {
-        return month;
+        switch(month)
+        {
+            case JANUARY:
+                return "January";
+            case FEBRUARY:
+                return "February";
+            case MARCH:
+                return "March";
+            case APRIL:
+                return "April";
+            case MAY:
+                return "May";
+            case JUNE:
+                return "June";
+            case JULY:
+                return "July";
+            case AUGUST:
+                return "August";
+            case SEPTEMBER:
+                return "September";
+            case OCTOBER:
+                return "October";
+            case NOVEMBER:
+                return "November";
+            case DECEMBER:
+                return "December";
+            default:
+                throw new IllegalArgumentException("An error occurred");
+        }
     }
 
     /**
@@ -249,6 +277,7 @@ public class Date
             case JUNE -> CODE_FIVE;
             case AUGUST -> CODE_THREE;
             case SEPTEMBER, DECEMBER -> CODE_SIX;
+            default -> throw new IllegalArgumentException("An error occurred");
         };
         sum_of_days += code;
 
@@ -272,7 +301,7 @@ public class Date
             case FRIDAY:
                 return "Friday";
             default:
-                return "An error occurred";
+                throw new IllegalArgumentException("An error occurred");
         }
     }
 
