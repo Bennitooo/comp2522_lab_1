@@ -50,6 +50,7 @@ public class Date
     private static final int ADD_TWO = 2;
     private static final int NUM_OF_TWELVES = 12;
     private static final int NUM_OF_FOURS = 4;
+    private static final int BASE_VALUE = 0;
 
     private static final int CODE_ZERO = 0;
     private static final int CODE_ONE = 1;
@@ -60,9 +61,9 @@ public class Date
     private static final int CODE_SIX = 6;
     private static final int DAYS_IN_WEEK = 7;
 
-    final int year;
-    final int month;
-    final int day;
+    private final int year;
+    private final int month;
+    private final int day;
 
     /**
      * This is a constructor for the opening and closing dates in someone's bank account.
@@ -202,7 +203,7 @@ public class Date
             case DECEMBER:
                 return "December";
             default:
-                throw new IllegalArgumentException("An error occurred");
+                throw new IllegalStateException("An error occurred");
         }
     }
 
@@ -393,7 +394,7 @@ public class Date
     public String getDayOfWeek()
     {
         int sum_of_days;
-        sum_of_days = 0;
+        sum_of_days = BASE_VALUE;
 
         if (month == JANUARY || month == FEBRUARY)
         {
@@ -401,7 +402,7 @@ public class Date
             {
                 sum_of_days += ADD_SIX;
             }
-            else if (year % DIVIDE_BY_FOUR == DIVISIBLE && year % DIVIDE_BY_FOUR_HUNDRED == DIVISIBLE)
+            else if (year % DIVIDE_BY_FOUR_HUNDRED == DIVISIBLE)
             {
                 sum_of_days += ADD_SIX;
             }
@@ -430,7 +431,8 @@ public class Date
         sum_of_days += num_of_twelves + remainder + num_of_fours + day;
 
         int code;
-        code = switch (month) {
+        code = switch (month)
+        {
             case JANUARY, OCTOBER -> CODE_ONE;
             case FEBRUARY, MARCH, NOVEMBER -> CODE_FOUR;
             case APRIL, JULY -> CODE_ZERO;
@@ -462,7 +464,7 @@ public class Date
             case FRIDAY:
                 return "Friday";
             default:
-                throw new IllegalArgumentException("An error occurred");
+                throw new IllegalStateException("An error occurred");
         }
     }
 
