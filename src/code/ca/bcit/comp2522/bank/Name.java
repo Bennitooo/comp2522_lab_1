@@ -28,7 +28,6 @@ public class Name
         this.last_name = last_name;
 
     }
-
     /**
      * This method validates the full name of someone's bank account.
      * It checks if the name is null or blank,
