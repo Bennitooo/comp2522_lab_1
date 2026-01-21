@@ -111,10 +111,13 @@ public class Name
      */
     public String getReverseName()
     {
-        String original_string = first_name + " " + last_name;
-        StringBuilder sb = new StringBuilder(original_string);
+        String original_string;
+        StringBuilder sb;
+        String reversed_str;
+        original_string = first_name + " " + last_name;
+        sb = new StringBuilder(original_string);
         sb.reverse();
-        String reversed_str = sb.toString();
+        reversed_str = sb.toString();
         return "Reversed Name: " + reversed_str;
     }
 }
