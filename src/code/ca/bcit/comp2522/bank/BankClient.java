@@ -8,6 +8,10 @@ package ca.bcit.comp2522.bank;
  */
 public class BankClient
 {
+
+    private static final int MIN_CLIENT_ID_LENGTH = 6;
+    private static final int MAX_CLIENT_ID_LENGTH = 7;
+
     private final Name name;
     private final Date birthDate;
     private final Date deathDate;
@@ -34,10 +38,9 @@ public class BankClient
     }
 
     /**
-     * This is an overriding constructor for the clients of a bank who have not died.
+     * This is an overloading constructor for the clients of a bank who have not died.
      * @param name This is the first parameter for a name
      * @param birthDate This is the second parameter for a birthdate
-     * @param deathDate This is the third parameter for a death date
      * @param signupDate This is the fourth parameter for a signup date
      * @param clientID This is the fifth parameter for a client id
      */
@@ -56,7 +59,7 @@ public class BankClient
      */
     private static void validateClientID(final String clientID)
     {
-        if (clientID.length() < 6 || clientID.length() > 7)
+        if (clientID.length() < MIN_CLIENT_ID_LENGTH || clientID.length() > MAX_CLIENT_ID_LENGTH)
         {
             throw new IllegalArgumentException("The clientID isn't the right length");
         }
@@ -91,5 +94,50 @@ public class BankClient
             // return "died " + deathDate.getDayOfWeek() + ", " + deathDate.getMonth() + " " + deathDate.getDay() + ", " + deathDate.getYear();
             return "not alive";
         }
+    }
+
+    /**
+     * Returns name.
+     * @return name
+     */
+    public Name getName()
+    {
+        return name;
+    }
+
+    /**
+     * Returns birthdate.
+     * @return birthdate.
+     */
+    public Date getBirthDate()
+    {
+        return birthDate;
+    }
+
+    /**
+     * Returns death date.
+     * @return death date
+     */
+    public Date getDeathDate()
+    {
+        return deathDate;
+    }
+
+    /**
+     * Returns signup date
+     * @return sign up date
+     */
+    public Date getSignupDate()
+    {
+        return signupDate;
+    }
+
+    /**
+     * Returns client ID.
+     * @return client ID
+     */
+    public String getClientID()
+    {
+        return clientID;
     }
 }
