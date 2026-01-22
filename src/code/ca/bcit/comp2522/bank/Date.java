@@ -418,19 +418,19 @@ public class Date
             sum_of_days += ADD_TWO;
         }
 
-        int years_left;
+        final int years_left;
         years_left = year % CENTURY_DIVISOR;
 
-        int num_of_twelves;
-        int remainder;
-        int num_of_fours;
+        final int num_of_twelves;
+        final int remainder;
+        final int num_of_fours;
 
         num_of_twelves = years_left / NUM_OF_TWELVES;
         remainder = years_left % NUM_OF_TWELVES;
         num_of_fours = remainder / NUM_OF_FOURS;
         sum_of_days += num_of_twelves + remainder + num_of_fours + day;
 
-        int code;
+        final int code;
         code = switch (month)
         {
             case JANUARY, OCTOBER -> CODE_ONE;
@@ -444,28 +444,19 @@ public class Date
         };
         sum_of_days += code;
 
-        int day_index;
+        final int day_index;
         day_index = sum_of_days % DAYS_IN_WEEK;
 
-        switch(day_index)
-        {
-            case SATURDAY:
-                return "Saturday";
-            case SUNDAY:
-                return "Sunday";
-            case MONDAY:
-                return "Monday";
-            case TUESDAY:
-                return "Tuesday";
-            case WEDNESDAY:
-                return "Wednesday";
-            case THURSDAY:
-                return "Thursday";
-            case FRIDAY:
-                return "Friday";
-            default:
-                throw new IllegalStateException("An error occurred");
-        }
+        return switch (day_index) {
+            case SATURDAY -> "Saturday";
+            case SUNDAY -> "Sunday";
+            case MONDAY -> "Monday";
+            case TUESDAY -> "Tuesday";
+            case WEDNESDAY -> "Wednesday";
+            case THURSDAY -> "Thursday";
+            case FRIDAY -> "Friday";
+            default -> throw new IllegalStateException("An error occurred");
+        };
     }
 
 }
