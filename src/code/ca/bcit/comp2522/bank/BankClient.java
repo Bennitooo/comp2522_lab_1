@@ -1,14 +1,15 @@
 package ca.bcit.comp2522.bank;
 
 /**
- * This class models the clients of a bank
+ * This class models the clients of a bank.
+ *
  * @author Bennett Lazarro Set D
  * @author Abdullah Munawar Set D
+ *
  * @version 1.0
  */
 public class BankClient
 {
-
     private static final int MIN_CLIENT_ID_LENGTH = 6;
     private static final int MAX_CLIENT_ID_LENGTH = 7;
 
@@ -19,14 +20,19 @@ public class BankClient
     private final String clientID;
 
     /**
-     * This is a constructor for the clients of a bank.
-     * @param name This is the first parameter for a name
-     * @param birthDate This is the second parameter for a birthdate
-     * @param signupDate This is the third parameter for a signup date
-     * @param clientID This is the fourth parameter for a client id
-     * @param deathDate This is the fifth parameter for a death date
+     * This is an overloading constructor for the clients of a bank who have not died.
+     *
+     * @param name This is the name of the bank client
+     * @param birthDate This is the date of birth of the client
+     * @param signupDate This is when the client opened the account
+     * @param deathDate This is the date of death of the client
+     * @param clientID This is the client's ID
      */
-    public BankClient(final Name name, final Date birthDate, final Date signupDate, final String clientID, final Date deathDate)
+    public BankClient(final Name name,
+                      final Date birthDate,
+                      final Date signupDate,
+                      final Date deathDate,
+                      final String clientID)
     {
         validateClientID(clientID);
         
@@ -39,13 +45,18 @@ public class BankClient
 
     /**
      * This is an overloading constructor for the clients of a bank who have not died.
-     * @param name This is the first parameter for a name
-     * @param birthDate This is the second parameter for a birthdate
-     * @param signupDate This is the third parameter for a signup date
-     * @param clientID This is the fourth parameter for a client id
+     * @param name This is the name of the bank client
+     * @param birthDate This is the date of birth of the client
+     * @param signupDate This is when the client opened the account
+     * @param clientID This is the client's ID
      */
-    public BankClient(final Name name, final Date birthDate, final Date signupDate, final String clientID)
+    public BankClient(final Name name,
+                      final Date birthDate,
+                      final Date signupDate,
+                      final String clientID)
     {
+        validateClientID(clientID);
+
         this.name = name;
         this.birthDate = birthDate;
         this.signupDate = signupDate;
@@ -72,15 +83,29 @@ public class BankClient
      */
     public String getDetails()
     {   
-        String alive_status;
-        alive_status = isAlive(deathDate);
-        // return name.getFullName() + " (" + alive_status + ") was born on " + birthDate.getDayOfWeek() + ", " + birthDate.getMonth() + " " + birthDate.getDay() + ", " + birthDate.getYear() + "!";
-        return name.getFullName() + " client #" + clientID + " (" + alive_status + ") joined the bank on " + signupDate.getDayOfWeek() + ", " + signupDate.getMonth() + " " + signupDate.getDay() + ", " + signupDate.getYear();
+        final String aliveStatus;
+
+        aliveStatus = isAlive(deathDate);
+        // return name.getFullName() + " (" + aliveStatus + ") was born on " + birthDate.getDayOfWeek() + ", " + birthDate.getMonth() + " " + birthDate.getDay() + ", " + birthDate.getYear() + "!";
+        return name.getFullName() +
+                " client #" +
+                clientID +
+                " (" +
+                aliveStatus +
+                ") joined the bank on " +
+                signupDate.getDayOfWeek() +
+                ", " +
+                signupDate.getMonth() +
+                " " +
+                signupDate.getDay() +
+                ", " +
+                signupDate.getYear();
     }
 
     /**
      * Returns whether the bank client is alive or has died.
-     * If the death date attribute for the client is null, then they are alive
+     * If the death date attribute for the client is null, then they are alive.
+     *
      * @return whether the bank client is alive or has died
      */
     private static String isAlive(final Date deathDate)
@@ -97,8 +122,9 @@ public class BankClient
     }
 
     /**
-     * Returns name.
-     * @return name
+     * Returns the name of the bank client.
+     *
+     * @return the name of the bank client
      */
     public Name getName()
     {
@@ -106,8 +132,9 @@ public class BankClient
     }
 
     /**
-     * Returns birthdate.
-     * @return birthdate.
+     * Returns the birthdate of the bank client.
+     *
+     * @return the birthdate of the bank client
      */
     public Date getBirthDate()
     {
@@ -115,8 +142,8 @@ public class BankClient
     }
 
     /**
-     * Returns death date.
-     * @return death date
+     * Returns the death date of the bank client.
+     * @return the death date of the bank client
      */
     public Date getDeathDate()
     {
@@ -124,8 +151,8 @@ public class BankClient
     }
 
     /**
-     * Returns signup date
-     * @return sign up date
+     * Returns the signup date of the bank client.
+     * @return the signup date of the bank client
      */
     public Date getSignupDate()
     {
@@ -133,8 +160,8 @@ public class BankClient
     }
 
     /**
-     * Returns client ID.
-     * @return client ID
+     * Returns the client ID of the bank client.
+     * @return the client ID of the bank client
      */
     public String getClientID()
     {
