@@ -1,36 +1,38 @@
 package ca.bcit.comp2522.bank;
 
 /**
- * This class models the opening and closing dates of someone's bank account
+ * This class models the opening and closing dates of someone's bank account.
+ *
  * @author Bennett Lazarro Set D
  * @author Abdullah Munawar Set D
+ *
  * @version 1.0
  */
 public class Date
 {
     private static final int MINIMUM_YEAR = 1800;
     private static final int CURRENT_YEAR = 2026;
-    private static final int JANUARY = 1;
-    private static final int FEBRUARY = 2;
-    private static final int MARCH = 3;
-    private static final int APRIL = 4;
-    private static final int MAY = 5;
-    private static final int JUNE = 6;
-    private static final int JULY = 7;
-    private static final int AUGUST = 8;
-    private static final int SEPTEMBER = 9;
-    private static final int OCTOBER = 10;
-    private static final int NOVEMBER = 11;
-    private static final int DECEMBER = 12;
+    private static final int JANUARY_MONTH_NUM = 1;
+    private static final int FEBRUARY_MONTH_NUM = 2;
+    private static final int MARCH_MONTH_NUM = 3;
+    private static final int APRIL_MONTH_NUM = 4;
+    private static final int MAY_MONTH_NUM = 5;
+    private static final int JUNE_MONTH_NUM = 6;
+    private static final int JULY_MONTH_NUM = 7;
+    private static final int AUGUST_MONTH_NUM = 8;
+    private static final int SEPTEMBER_MONTH_NUM = 9;
+    private static final int OCTOBER_MONTH_NUM = 10;
+    private static final int NOVEMBER_MONTH_NUM = 11;
+    private static final int DECEMBER_MONTH_NUM = 12;
 
     private static final int DAY_ONE = 1;
-    private static final int DAY_TWENTY_EIGHT = 28;
-    private static final int DAY_TWENTY_NINE = 29;
-    private static final int DAY_THIRTY = 30;
-    private static final int DAY_THIRTY_ONE = 31;
-    private static final int DIVIDE_BY_FOUR = 4;
-    private static final int DIVIDE_BY_ONE_HUNDRED = 100;
-    private static final int DIVIDE_BY_FOUR_HUNDRED = 400;
+    private static final int SHORT_FEBRUARY_MONTH_NUM = 28;
+    private static final int LONG_FEBRUARY_MONTH_NUM = 29;
+    private static final int SHORT_MONTH = 30;
+    private static final int LONG_MONTH = 31;
+    private static final int YEAR_EVERY_LEAP_YEAR = 4;
+    private static final int YEAR_EVERY_CENTURY = 100;
+    private static final int YEAR_EVERY_FOUR_CENTURY = 400;
     private static final int DIVISIBLE = 0;
     private static final int MINIMUM_TEN = 10;
 
@@ -42,23 +44,23 @@ public class Date
     private static final int THURSDAY = 5;
     private static final int FRIDAY = 6;
 
-    private static final int EIGHTEEN_HUNDREDS = 1800;
-    private static final int NINETEEN_HUNDREDS = 1900;
-    private static final int TWO_THOUSANDS = 2000;
+    private static final int YEAR_EIGHTEEN_HUNDREDS = 1800;
+    private static final int YEAR_NINETEEN_HUNDREDS = 1900;
+    private static final int YEAR_TWO_THOUSANDS = 2000;
     private static final int CENTURY_DIVISOR = 100;
     private static final int ADD_SIX = 6;
     private static final int ADD_TWO = 2;
-    private static final int NUM_OF_TWELVES = 12;
-    private static final int NUM_OF_FOURS = 4;
+    private static final int NUMBER_OF_COMPLETE_TWELVES = 12;
+    private static final int NUMBER_OF_COMPLETE_FOURS = 4;
     private static final int BASE_VALUE = 0;
 
-    private static final int CODE_ZERO = 0;
-    private static final int CODE_ONE = 1;
-    private static final int CODE_TWO = 2;
-    private static final int CODE_THREE = 3;
-    private static final int CODE_FOUR = 4;
-    private static final int CODE_FIVE = 5;
-    private static final int CODE_SIX = 6;
+    private static final int MONTH_CODE_ZERO = 0;
+    private static final int MONTH_CODE_ONE = 1;
+    private static final int MONTH_CODE_TWO = 2;
+    private static final int MONTH_CODE_THREE = 3;
+    private static final int MONTH_CODE_FOUR = 4;
+    private static final int MONTH_CODE_FIVE = 5;
+    private static final int MONTH_CODE_SIX = 6;
     private static final int DAYS_IN_WEEK = 7;
 
     private final int year;
@@ -67,11 +69,14 @@ public class Date
 
     /**
      * This is a constructor for the opening and closing dates in someone's bank account.
+     *
      * @param year This is the first parameter for a year
      * @param month This is the second parameter for a month
      * @param day This is the third parameter for a day
      */
-    public Date(final int year, final int month, final int day)
+    public Date(final int year, 
+                final int month, 
+                final int day)
     {
         validateYear(year);
         validateMonth(month);
@@ -83,8 +88,9 @@ public class Date
     }
     /**
      * This is a private validator method to check if the year is either:
-     * 1) less than MINIMUM_YEAR (1800), OR
-     * 2) greater than CURRENT_YEAR (2006)
+     * 1) less than MINIMUM_YEAR OR
+     * 2) greater than CURRENT_YEAR 
+     *
      * @param year This is the parameter for a year
      */
     private static void validateYear(final int year)
@@ -97,12 +103,13 @@ public class Date
 
     /**
      * This is a private validator method to check if the month,
-     * represented as an int, less than 1 (JANUARY) OR greater than 12 (DECEMBER).
+     * represented as an int, less than 1 (JANUARY_MONTH_NUM) OR greater than 12 (DECEMBER_MONTH_NUM).
+     *
      * @param month This is the parameter for a month
      */
     private static void validateMonth(final int month)
     {
-        if (month < JANUARY || month > DECEMBER)
+        if (month < JANUARY_MONTH_NUM || month > DECEMBER_MONTH_NUM)
         {
             throw new IllegalArgumentException("Month is out of range");
         }
@@ -110,50 +117,63 @@ public class Date
     /**
      * This is a private validator method to check if the day is within
      * the valid range for the specific month and year.
+     *
      * @param day The day of the month to validate
      * @param month The month value
      * @param year The year value
      */
-    private static void validateDay(final int day, final int month, final int year)
+    private static void validateDay(final int day,
+                                    final int month,
+                                    final int year)
     {
         if (day < DAY_ONE)
         {
             throw new IllegalArgumentException("Day is out of range");
         }
 
-        if (month == JANUARY || month == MARCH || month == MAY || month == JULY || month == AUGUST || month == OCTOBER || month == DECEMBER)
+        if (month == JANUARY_MONTH_NUM ||
+                month == MARCH_MONTH_NUM ||
+                month == MAY_MONTH_NUM ||
+                month == JULY_MONTH_NUM ||
+                month == AUGUST_MONTH_NUM ||
+                month == OCTOBER_MONTH_NUM ||
+                month == DECEMBER_MONTH_NUM)
         {
-            if (day > DAY_THIRTY_ONE)
+            if (day > LONG_MONTH)
             {
                 throw new IllegalArgumentException("Day is out of range");
             }
         }
-        else if (month == APRIL || month == JUNE || month == SEPTEMBER || month == NOVEMBER)
+        else if (month == APRIL_MONTH_NUM ||
+                month == JUNE_MONTH_NUM ||
+                month == SEPTEMBER_MONTH_NUM ||
+                month == NOVEMBER_MONTH_NUM)
         {
-            if (day > DAY_THIRTY)
+            if (day > SHORT_MONTH)
             {
                 throw new IllegalArgumentException("Day is out of range");
             }
         }
         else
         {
-            if (year % DIVIDE_BY_FOUR == DIVISIBLE && year % DIVIDE_BY_ONE_HUNDRED != DIVISIBLE)
+            if (year % YEAR_EVERY_LEAP_YEAR == DIVISIBLE &&
+                    year % YEAR_EVERY_CENTURY != DIVISIBLE)
             {
-                if (day > DAY_TWENTY_NINE)
+                if (day > LONG_FEBRUARY_MONTH_NUM)
                 {
                     throw new IllegalArgumentException("Day is out of range");
                 }
             }
-            else if (year % DIVIDE_BY_FOUR_HUNDRED == DIVISIBLE)
+            else if (year % YEAR_EVERY_FOUR_CENTURY == DIVISIBLE)
             {
-                if (day > DAY_TWENTY_NINE)
+                if (day > LONG_FEBRUARY_MONTH_NUM)
                 {
                     throw new IllegalArgumentException("Day is out of range");
                 }
             }
             else
             {
-                if (day > DAY_TWENTY_EIGHT)
+                if (day > SHORT_FEBRUARY_MONTH_NUM)
                 {
                     throw new IllegalArgumentException("Day is out of range");
                 }
@@ -163,6 +183,7 @@ public class Date
 
     /**
      * Returns the date's day.
+     *
      * @return the date's day
      */
     public int getDay()
@@ -172,43 +193,31 @@ public class Date
 
     /**
      * Returns the date's month.
+     *
      * @return the date's month
      */
     public String getMonth()
     {
-        switch(month)
-        {
-            case JANUARY:
-                return "January";
-            case FEBRUARY:
-                return "February";
-            case MARCH:
-                return "March";
-            case APRIL:
-                return "April";
-            case MAY:
-                return "May";
-            case JUNE:
-                return "June";
-            case JULY:
-                return "July";
-            case AUGUST:
-                return "August";
-            case SEPTEMBER:
-                return "September";
-            case OCTOBER:
-                return "October";
-            case NOVEMBER:
-                return "November";
-            case DECEMBER:
-                return "December";
-            default:
-                throw new IllegalStateException("An error occurred");
-        }
+        return switch (month) {
+            case JANUARY_MONTH_NUM -> "January";
+            case FEBRUARY_MONTH_NUM -> "February";
+            case MARCH_MONTH_NUM -> "March";
+            case APRIL_MONTH_NUM -> "April";
+            case MAY_MONTH_NUM -> "May";
+            case JUNE_MONTH_NUM -> "June";
+            case JULY_MONTH_NUM -> "July";
+            case AUGUST_MONTH_NUM -> "August";
+            case SEPTEMBER_MONTH_NUM -> "September";
+            case OCTOBER_MONTH_NUM -> "October";
+            case NOVEMBER_MONTH_NUM -> "November";
+            case DECEMBER_MONTH_NUM -> "December";
+            default -> throw new IllegalStateException("An error occurred");
+        };
     }
 
     /**
      * Returns the date's year.
+     *
      * @return the date's year
      */
     public int getYear()
@@ -218,13 +227,15 @@ public class Date
 
     /**
      * Returns the date formatted in YYYYMMDD.
-     * It adds a 0 before the month if it is less than 10 (before October)
-     * It adds a 0 before the day if it is less than 10
+     * It adds a 0 before the month if it is less than 10 (before October).
+     * It adds a 0 before the day if it is less than 10.
+     *
      * @return the date formatted in YYYYMMDD
      */
     public String getYYYYMMDD()
     {
-        if (month < MINIMUM_TEN && day < MINIMUM_TEN)
+        if (month < MINIMUM_TEN &&
+                day < MINIMUM_TEN)
         {
             return year + "-0" + month + "-0" + day;
         }
@@ -282,13 +293,13 @@ public class Date
      * ----------------------------------------------------------------------------------
      * Leap Year Rules:
      * A year is a leap if:
-     * 1. It is divisible by 4 AND not divisible by 100, OR
-     * 2. It is divisible by 400
+     * 1. It is divisible by YEAR_EVERY_LEAP_YEAR AND not divisible by YEAR_EVERY_CENTURY, OR
+     * 2. It is divisible by YEAR_EVERY_FOUR_CENTURY
      * Examples:
-     * - 2000: Divisible by 400 -> Leap year
-     * - 1900: Divisible by 100 but not 400 -> Not a leap year
-     * - 2004: Divisible by 4 and not by 100 -> Leap year
-     * - 1977: Not divisible by 4 -> Not a leap year
+     * - 2000: Divisible by YEAR_EVERY_FOUR_CENTURY-> Leap year
+     * - 1900: Divisible by YEAR_EVERY_CENTURY but not YEAR_EVERY_FOUR_CENTURY -> Not a leap year
+     * - 2004: Divisible by YEAR_EVERY_LEAP_YEAR and not by YEAR_EVERY_CENTURY -> Leap year
+     * - 1977: Not divisible by YEAR_EVERY_LEAP_YEAR -> Not a leap year
      * ----------------------------------------------------------------------------------
      * For our example we skip this adjustment
      * ----------------------------------------------------------------------------------
@@ -301,9 +312,9 @@ public class Date
      * For our example we skip this adjustment
      * ----------------------------------------------------------------------------------
      * Adjustment C: Century adjustment for 1800s
-     * If the year is between 1800 and 1899, we add 2
+     * If the year is greater or equal to YEAR_EIGHTEEN_HUNDREDS and less than YEAR_NINETEEN_HUNDREDS, we ADD_TWO
      * Similar to the 2000s adjustment, the 1800s require their own adjustment
-     * factor (2 instead of 6) to align with the calendar cycle.
+     * factor (ADD_TWO instead of ADD_SIX) to align with the calendar cycle.
      * ----------------------------------------------------------------------------------
      * For our example we skip this adjustment
      * ----------------------------------------------------------------------------------
@@ -313,40 +324,40 @@ public class Date
      * specific day and month
      * ----------------------------------------------------------------------------------
      * STEP 1: Extract the last two digits of the year
-     * We take the year and use modulo 100 to get just the last two digits.
+     * We take the year and use modulo CENTURY_DIVISOR to get just the last two digits.
      * For 1977:
-     * years_left = 1977 % 100 = 77
+     * yearsLeft = 1977 % CENTURY_DIVISOR = 77
      * ----------------------------------------------------------------------------------
      * STEP 2: Calculate the number of complete twelves
-     * We divide the last two digits of the year by 12 and take only the whole number.
+     * We divide the last two digits of the year by NUMBER_OF_COMPLETE_TWELVES and take only the whole number.
      * For 77:
-     * num_of_twelves == 77 / 12 = 6
+     * numOfTwelves == 77 / NUMBER_OF_COMPLETE_TWELVES = 6
      * ----------------------------------------------------------------------------------
      * STEP 3: Calculate the remainder after removing the twelves
-     * We find what's left over after removing all the complete groups of 12.
+     * We find what's left over after removing all the complete groups of NUMBER_OF_COMPLETE_TWELVES.
      * For 77:
-     * remainder = 77 % 12 = 5
+     * remainder = 77 % NUMBER_OF_COMPLETE_TWELVES = 5
      * "5" represents the "extra years" used in the next steps
      * ----------------------------------------------------------------------------------
      * STEP 4: Calculate the number of complete fours in the remainder
-     * We divide the remainder by 4 and take only the whole number.
+     * We divide the remainder by NUMBER_OF_COMPLETE_FOURS and take only the whole number.
      * For remainder of 5:
-     * num_of_fours = 5 / 4 = 1
+     * numOfFours = 5 / NUMBER_OF_COMPLETE_FOURS = 1
      * ----------------------------------------------------------------------------------
      * We add together:
-     * - The number of twelves
-     * - The remainder
-     * - The number of fours
-     * - The day of the month
-     * - Our running sum_of days
+     * - numberOfTwelves
+     * - remainder
+     * - numberOfFours
+     * - day
+     * - Our running sumOfDays
      * ----------------------------------------------------------------------------------
      * For October 31, 1977:
-     * sum_of_days = 0 (Phase 1)
-     * sum_of_days += 6 (num_of_twelves)
-     * sum_of_days += 5 (remainder)
-     * sum_of_days += 1 (num_of_fours)
-     * sum_of_days += 31 (day of month)
-     * sum_of_days = 43
+     * sumOfDays = 0 (Phase 1)
+     * sumOfDays += 6 (numOfTwelves)
+     * sumOfDays += 5 (remainder)
+     * sumOfDays += 1 (numOfFours)
+     * sumOfDays += 31 (day of month)
+     * sumOfDays = 43
      * ----------------------------------------------------------------------------------
      * STEP 6: Add the month code
      * Each month has a specific code that must be added. These codes account for the
@@ -359,9 +370,9 @@ public class Date
      * and returns the corresponding code value.
      * ----------------------------------------------------------------------------------
      * For October:
-     * code = 1
-     * sum_of_days += 1
-     * sum_of_days = 43 + 1 = 44
+     * code = MONTH_CODE_ONE
+     * sumOfDays += 1
+     * sumOfDays = 43 + 1 = 44
      * ----------------------------------------------------------------------------------
      * STEP 7: Calculate the final day index using modulo 7
      * We take our total sum and find the remainder when divided by 7.
@@ -371,20 +382,20 @@ public class Date
      * reduced to a value from 0-6, representing the 7 possible days.
      * ----------------------------------------------------------------------------------
      * PHASE 3: Mapping the result to a day name
-     * The day_index value (0-6) maps to actual day names as follows:
-     * 0 = Saturday
-     * 1 = Sunday
-     * 2 = Monday
-     * 3 = Tuesday
-     * 4 = Wednesday
-     * 5 = Thursday
-     * 6 = Friday
+     * The dayIndex value (0-6) maps to actual day names as follows:
+     * SATURDAY = "Saturday"
+     * SUNDAY = "Sunday"
+     * MONDAY = "Monday"
+     * TUESDAY = "Tuesday"
+     * WEDNESDAY = "Wednesday"
+     * THURSDAY = "Thursday"
+     * FRIDAY = "Friday"
      * For our example:
-     * day_index = 2
-     * 2 maps to "Monday"
+     * dayIndex = MONDAY
+     * MONDAY maps to "Monday"
      * ----------------------------------------------------------------------------------
      * Verification: October 31, 1977 was indeed a Monday!
-     * The final switch statement takes the day_index and returns the corresponding
+     * The final switch statement takes the dayIndex and returns the corresponding
      * day name as a String. If somehow an invalid index is produced, the default case returns
      * "An error occurred".
      * ----------------------------------------------------------------------------------
@@ -393,61 +404,54 @@ public class Date
      */
     public String getDayOfWeek()
     {
-        int sum_of_days;
-        sum_of_days = BASE_VALUE;
-
-        if (month == JANUARY || month == FEBRUARY)
-        {
-            if (year % DIVIDE_BY_FOUR == DIVISIBLE && year % DIVIDE_BY_ONE_HUNDRED != DIVISIBLE)
-            {
-                sum_of_days += ADD_SIX;
-            }
-            else if (year % DIVIDE_BY_FOUR_HUNDRED == DIVISIBLE)
-            {
-                sum_of_days += ADD_SIX;
-            }
-        }
-
-        if (year >= TWO_THOUSANDS)
-        {
-            sum_of_days += ADD_SIX;
-        }
-
-        if (year >= EIGHTEEN_HUNDREDS && year < NINETEEN_HUNDREDS)
-        {
-            sum_of_days += ADD_TWO;
-        }
-
-        final int years_left;
-        years_left = year % CENTURY_DIVISOR;
-
-        final int num_of_twelves;
+        final int yearsLeft;
+        final int numberOfTwelves;
         final int remainder;
-        final int num_of_fours;
+        final int numberOfFours;
+        final int code = getMonthCode();
+        final int dayIndex;
 
-        num_of_twelves = years_left / NUM_OF_TWELVES;
-        remainder = years_left % NUM_OF_TWELVES;
-        num_of_fours = remainder / NUM_OF_FOURS;
-        sum_of_days += num_of_twelves + remainder + num_of_fours + day;
+        int sumOfDays;
 
-        final int code;
-        code = switch (month)
+        sumOfDays = BASE_VALUE;
+
+        if (month == JANUARY_MONTH_NUM ||
+                month == FEBRUARY_MONTH_NUM)
         {
-            case JANUARY, OCTOBER -> CODE_ONE;
-            case FEBRUARY, MARCH, NOVEMBER -> CODE_FOUR;
-            case APRIL, JULY -> CODE_ZERO;
-            case MAY -> CODE_TWO;
-            case JUNE -> CODE_FIVE;
-            case AUGUST -> CODE_THREE;
-            case SEPTEMBER, DECEMBER -> CODE_SIX;
-            default -> throw new IllegalStateException("Unexpected value: " + month);
-        };
-        sum_of_days += code;
+            if (year % YEAR_EVERY_LEAP_YEAR == DIVISIBLE &&
+                    year % YEAR_EVERY_CENTURY != DIVISIBLE)
+            {
+                sumOfDays += ADD_SIX;
+            }
+            else if (year % YEAR_EVERY_FOUR_CENTURY == DIVISIBLE)
+            {
+                sumOfDays += ADD_SIX;
+            }
+        }
 
-        final int day_index;
-        day_index = sum_of_days % DAYS_IN_WEEK;
+        if (year >= YEAR_TWO_THOUSANDS)
+        {
+            sumOfDays += ADD_SIX;
+        }
 
-        return switch (day_index) {
+        if (year >= YEAR_EIGHTEEN_HUNDREDS &&
+                year < YEAR_NINETEEN_HUNDREDS)
+        {
+            sumOfDays += ADD_TWO;
+        }
+
+        yearsLeft = year % CENTURY_DIVISOR;
+
+        numberOfTwelves = yearsLeft / NUMBER_OF_COMPLETE_TWELVES;
+        remainder = yearsLeft % NUMBER_OF_COMPLETE_TWELVES;
+        numberOfFours = remainder / NUMBER_OF_COMPLETE_FOURS;
+        sumOfDays += numberOfTwelves + remainder + numberOfFours + day;
+
+        sumOfDays += code;
+
+        dayIndex = sumOfDays % DAYS_IN_WEEK;
+
+        return switch (dayIndex) {
             case SATURDAY -> "Saturday";
             case SUNDAY -> "Sunday";
             case MONDAY -> "Monday";
@@ -457,6 +461,27 @@ public class Date
             case FRIDAY -> "Friday";
             default -> throw new IllegalStateException("An error occurred");
         };
+    }
+
+    /**
+     * This returns the month's designated code
+     *
+     * @return Month's designated code
+     */
+    public int getMonthCode() {
+        final int code;
+        code = switch (month)
+        {
+            case JANUARY_MONTH_NUM, OCTOBER_MONTH_NUM -> MONTH_CODE_ONE;
+            case FEBRUARY_MONTH_NUM, MARCH_MONTH_NUM, NOVEMBER_MONTH_NUM -> MONTH_CODE_FOUR;
+            case APRIL_MONTH_NUM, JULY_MONTH_NUM -> MONTH_CODE_ZERO;
+            case MAY_MONTH_NUM -> MONTH_CODE_TWO;
+            case JUNE_MONTH_NUM -> MONTH_CODE_FIVE;
+            case AUGUST_MONTH_NUM -> MONTH_CODE_THREE;
+            case SEPTEMBER_MONTH_NUM, DECEMBER_MONTH_NUM -> MONTH_CODE_SIX;
+            default -> throw new IllegalStateException("Unexpected value: " + month);
+        };
+        return code;
     }
 
 }
