@@ -154,7 +154,7 @@ public class BankAccount
     /**
      * This is an overloading method for the clients who have a pin to match with the account's pin
      *
-     * @param amountUsd This is how much you want withdraw
+     * @param amountUsd  This is how much you want withdraw
      * @param pinToMatch Pin to match with the account pin
      * @return Either the first withdraw method or an empty string
      */

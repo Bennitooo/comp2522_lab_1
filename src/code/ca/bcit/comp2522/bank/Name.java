@@ -22,7 +22,7 @@ public class Name
      * This is a constructor for the full name in someone's bank account.
      *
      * @param firstName This is the first name
-     * @param lastName This is the last name
+     * @param lastName  This is the last name
      */
     public Name(final String firstName,
                 final String lastName)
@@ -41,7 +41,7 @@ public class Name
      * if the name length is greater or equal to 45,
      * and if the name contains the word "admin".
      *
-     * @param name This is the name to validate
+     * @param name      This is the name to validate
      * @param fieldName This is the type of name it is (either First Name or Last Name)
      */
     private static void validateName(final String name,

@@ -70,9 +70,9 @@ public class Date
     /**
      * This is a constructor for the opening and closing dates in someone's bank account.
      *
-     * @param year This is the first parameter for a year
+     * @param year  This is the first parameter for a year
      * @param month This is the second parameter for a month
-     * @param day This is the third parameter for a day
+     * @param day   This is the third parameter for a day
      */
     public Date(final int year, 
                 final int month, 
@@ -120,9 +120,9 @@ public class Date
      * This is a private validator method to check if the day is within
      * the valid range for the specific month and year.
      *
-     * @param day The day of the month to validate
+     * @param day   The day of the month to validate
      * @param month The month value
-     * @param year The year value
+     * @param year  The year value
      */
     private static void validateDay(final int day,
                                     final int month,

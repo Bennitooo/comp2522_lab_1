@@ -22,11 +22,11 @@ public class BankClient
     /**
      * This is an overloading constructor for the clients of a bank who have not died.
      *
-     * @param name This is the name of the bank client
-     * @param birthDate This is the date of birth of the client
+     * @param name       This is the name of the bank client
+     * @param birthDate  This is the date of birth of the client
      * @param signupDate This is when the client opened the account
-     * @param deathDate This is the date of death of the client
-     * @param clientID This is the client's ID
+     * @param deathDate  This is the date of death of the client
+     * @param clientID   This is the client's ID
      */
     public BankClient(final Name name,
                       final Date birthDate,
@@ -45,10 +45,10 @@ public class BankClient
 
     /**
      * This is an overloading constructor for the clients of a bank who have not died.
-     * @param name This is the name of the bank client
-     * @param birthDate This is the date of birth of the client
+     * @param name       This is the name of the bank client
+     * @param birthDate  This is the date of birth of the client
      * @param signupDate This is when the client opened the account
-     * @param clientID This is the client's ID
+     * @param clientID   This is the client's ID
      */
     public BankClient(final Name name,
                       final Date birthDate,
