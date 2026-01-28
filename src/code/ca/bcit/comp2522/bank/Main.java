@@ -13,9 +13,9 @@ public class Main
     /**
      * This drives the program.
      *
-     * @param args unused
+     * @param args command line arguments (unused)
      */
-    public static void main (final String [] args)
+    public static void main(final String [] args)
     {
 
         final Name n1;
@@ -57,6 +57,7 @@ public class Main
                 new Date(1954,4,7),
                 new Date(1980,10,1),
                 "chan789");
+        
         bA1 = new BankAccount(bC1,
                 3141,
                 "abc123",
@@ -70,7 +71,8 @@ public class Main
                 null,
                 2000);
         bA3 = new BankAccount(bC1,
-                1907, "frd123",
+                1907,
+                "frd123",
                 new Date(1940, 1, 1),
                 new Date(1954, 7, 13),
                 500);

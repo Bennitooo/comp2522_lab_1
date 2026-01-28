@@ -10,19 +10,19 @@ package ca.bcit.comp2522.bank;
  */
 public class BankAccount
 {
-    private static final int ZERO_BALANCE = 0;
+    private static final int ZERO_BALANCE              = 0;
     private static final int MIN_ACCOUNT_NUMBER_LENGTH = 6;
     private static final int MAX_ACCOUNT_NUMBER_LENGTH = 7;
-    private static final int MIN_PIN_NUMBER_LENGTH = 1000;
-    private static final int MAX_PIN_NUMBER_LENGTH = 9999;
+    private static final int MIN_PIN_NUMBER_LENGTH     = 1000;
+    private static final int MAX_PIN_NUMBER_LENGTH     = 9999;
 
 
     private final BankClient client;
-    private final int pin;
-    private final String accountNumber;
-    private final Date accountOpened;
-    private final Date accountClosed;
-    private double balanceUsd;
+    private final int        pin;
+    private final String     accountNumber;
+    private final Date       accountOpened;
+    private final Date       accountClosed;
+    private       double     balanceUsd;
 
     /**
      * This is a private validator to check if the client's pin.
@@ -31,7 +31,8 @@ public class BankAccount
      */
     private static void validatePin(final int pin)
     {
-        if (pin < MIN_PIN_NUMBER_LENGTH || pin > MAX_PIN_NUMBER_LENGTH)
+        if (pin < MIN_PIN_NUMBER_LENGTH ||
+            pin > MAX_PIN_NUMBER_LENGTH)
         {
             throw new IllegalArgumentException("Pin number must be 4 digits long");
         }
@@ -59,12 +60,12 @@ public class BankAccount
         validateAccountOpened(accountOpened);
         validateInitialBalanceUsd(initialBalanceUsd);
 
-        this.client = client;
-        this.pin = pin;
+        this.client        = client;
+        this.pin           = pin;
         this.accountNumber = accountNumber;
         this.accountOpened = accountOpened;
         this.accountClosed = accountClosed;
-        this.balanceUsd = initialBalanceUsd;
+        this.balanceUsd    = initialBalanceUsd;
     }
 
     /**
@@ -93,7 +94,8 @@ public class BankAccount
         }
 
         final int length = accountNumber.length();
-        if (length != MIN_ACCOUNT_NUMBER_LENGTH && length != MAX_ACCOUNT_NUMBER_LENGTH)
+        if (length != MIN_ACCOUNT_NUMBER_LENGTH &&
+            length != MAX_ACCOUNT_NUMBER_LENGTH)
         {
             throw new IllegalArgumentException("Account number must be 6 or 7 characters");
         }
@@ -135,7 +137,7 @@ public class BankAccount
     public String withdraw(final double amountUsd)
     {
         if (amountUsd <= balanceUsd &&
-                amountUsd > ZERO_BALANCE)
+            amountUsd > ZERO_BALANCE)
         {
             balanceUsd -= amountUsd;
             return "Withdrew: $" +
@@ -159,7 +161,7 @@ public class BankAccount
     public String withdraw(final double amountUsd,
                            final int pinToMatch)
     {
-       if(pinToMatch == this.pin)
+       if (pinToMatch == this.pin)
        {
            return withdraw(amountUsd);
        }

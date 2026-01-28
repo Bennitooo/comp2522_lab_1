@@ -10,58 +10,58 @@ package ca.bcit.comp2522.bank;
  */
 public class Date
 {
-    private static final int MINIMUM_YEAR = 1800;
-    private static final int CURRENT_YEAR = 2026;
-    private static final int JANUARY_MONTH_NUM = 1;
-    private static final int FEBRUARY_MONTH_NUM = 2;
-    private static final int MARCH_MONTH_NUM = 3;
-    private static final int APRIL_MONTH_NUM = 4;
-    private static final int MAY_MONTH_NUM = 5;
-    private static final int JUNE_MONTH_NUM = 6;
-    private static final int JULY_MONTH_NUM = 7;
-    private static final int AUGUST_MONTH_NUM = 8;
+    private static final int MINIMUM_YEAR        = 1800;
+    private static final int CURRENT_YEAR        = 2026;
+    private static final int JANUARY_MONTH_NUM   = 1;
+    private static final int FEBRUARY_MONTH_NUM  = 2;
+    private static final int MARCH_MONTH_NUM     = 3;
+    private static final int APRIL_MONTH_NUM     = 4;
+    private static final int MAY_MONTH_NUM       = 5;
+    private static final int JUNE_MONTH_NUM      = 6;
+    private static final int JULY_MONTH_NUM      = 7;
+    private static final int AUGUST_MONTH_NUM    = 8;
     private static final int SEPTEMBER_MONTH_NUM = 9;
-    private static final int OCTOBER_MONTH_NUM = 10;
-    private static final int NOVEMBER_MONTH_NUM = 11;
-    private static final int DECEMBER_MONTH_NUM = 12;
+    private static final int OCTOBER_MONTH_NUM   = 10;
+    private static final int NOVEMBER_MONTH_NUM  = 11;
+    private static final int DECEMBER_MONTH_NUM  = 12;
 
-    private static final int DAY_ONE = 1;
+    private static final int DAY_ONE                  = 1;
     private static final int SHORT_FEBRUARY_MONTH_NUM = 28;
-    private static final int LONG_FEBRUARY_MONTH_NUM = 29;
-    private static final int SHORT_MONTH = 30;
-    private static final int LONG_MONTH = 31;
-    private static final int YEAR_EVERY_LEAP_YEAR = 4;
-    private static final int YEAR_EVERY_CENTURY = 100;
-    private static final int YEAR_EVERY_FOUR_CENTURY = 400;
-    private static final int DIVISIBLE = 0;
-    private static final int MINIMUM_TEN = 10;
+    private static final int LONG_FEBRUARY_MONTH_NUM  = 29;
+    private static final int SHORT_MONTH              = 30;
+    private static final int LONG_MONTH               = 31;
+    private static final int YEAR_EVERY_LEAP_YEAR     = 4;
+    private static final int YEAR_EVERY_CENTURY       = 100;
+    private static final int YEAR_EVERY_FOUR_CENTURY  = 400;
+    private static final int DIVISIBLE                = 0;
+    private static final int MINIMUM_TEN              = 10;
 
-    private static final int SATURDAY = 0;
-    private static final int SUNDAY = 1;
-    private static final int MONDAY = 2;
-    private static final int TUESDAY = 3;
+    private static final int SATURDAY  = 0;
+    private static final int SUNDAY    = 1;
+    private static final int MONDAY    = 2;
+    private static final int TUESDAY   = 3;
     private static final int WEDNESDAY = 4;
-    private static final int THURSDAY = 5;
-    private static final int FRIDAY = 6;
+    private static final int THURSDAY  = 5;
+    private static final int FRIDAY    = 6;
 
-    private static final int YEAR_EIGHTEEN_HUNDREDS = 1800;
-    private static final int YEAR_NINETEEN_HUNDREDS = 1900;
-    private static final int YEAR_TWO_THOUSANDS = 2000;
-    private static final int CENTURY_DIVISOR = 100;
-    private static final int ADD_SIX = 6;
-    private static final int ADD_TWO = 2;
+    private static final int YEAR_EIGHTEEN_HUNDREDS     = 1800;
+    private static final int YEAR_NINETEEN_HUNDREDS     = 1900;
+    private static final int YEAR_TWO_THOUSANDS         = 2000;
+    private static final int CENTURY_DIVISOR            = 100;
+    private static final int ADD_SIX                    = 6;
+    private static final int ADD_TWO                    = 2;
     private static final int NUMBER_OF_COMPLETE_TWELVES = 12;
-    private static final int NUMBER_OF_COMPLETE_FOURS = 4;
-    private static final int BASE_VALUE = 0;
+    private static final int NUMBER_OF_COMPLETE_FOURS   = 4;
+    private static final int BASE_VALUE                 = 0;
 
-    private static final int MONTH_CODE_ZERO = 0;
-    private static final int MONTH_CODE_ONE = 1;
-    private static final int MONTH_CODE_TWO = 2;
+    private static final int MONTH_CODE_ZERO  = 0;
+    private static final int MONTH_CODE_ONE   = 1;
+    private static final int MONTH_CODE_TWO   = 2;
     private static final int MONTH_CODE_THREE = 3;
-    private static final int MONTH_CODE_FOUR = 4;
-    private static final int MONTH_CODE_FIVE = 5;
-    private static final int MONTH_CODE_SIX = 6;
-    private static final int DAYS_IN_WEEK = 7;
+    private static final int MONTH_CODE_FOUR  = 4;
+    private static final int MONTH_CODE_FIVE  = 5;
+    private static final int MONTH_CODE_SIX   = 6;
+    private static final int DAYS_IN_WEEK     = 7;
 
     private final int year;
     private final int month;
@@ -82,9 +82,9 @@ public class Date
         validateMonth(month);
         validateDay(day, month, year);
 
-        this.year = year;
+        this.year  = year;
         this.month = month;
-        this.day = day;
+        this.day   = day;
     }
     /**
      * This is a private validator method to check if the year is either:
@@ -95,7 +95,8 @@ public class Date
      */
     private static void validateYear(final int year)
     {
-        if (year < MINIMUM_YEAR || year > CURRENT_YEAR)
+        if (year < MINIMUM_YEAR ||
+            year > CURRENT_YEAR)
         {
             throw new IllegalArgumentException("Year is out of range");
         }
@@ -109,7 +110,8 @@ public class Date
      */
     private static void validateMonth(final int month)
     {
-        if (month < JANUARY_MONTH_NUM || month > DECEMBER_MONTH_NUM)
+        if (month < JANUARY_MONTH_NUM ||
+            month > DECEMBER_MONTH_NUM)
         {
             throw new IllegalArgumentException("Month is out of range");
         }
@@ -132,12 +134,12 @@ public class Date
         }
 
         if (month == JANUARY_MONTH_NUM ||
-                month == MARCH_MONTH_NUM ||
-                month == MAY_MONTH_NUM ||
-                month == JULY_MONTH_NUM ||
-                month == AUGUST_MONTH_NUM ||
-                month == OCTOBER_MONTH_NUM ||
-                month == DECEMBER_MONTH_NUM)
+            month == MARCH_MONTH_NUM ||
+            month == MAY_MONTH_NUM ||
+            month == JULY_MONTH_NUM ||
+            month == AUGUST_MONTH_NUM ||
+            month == OCTOBER_MONTH_NUM ||
+            month == DECEMBER_MONTH_NUM)
         {
             if (day > LONG_MONTH)
             {
@@ -157,7 +159,7 @@ public class Date
         else
         {
             if (year % YEAR_EVERY_LEAP_YEAR == DIVISIBLE &&
-                    year % YEAR_EVERY_CENTURY != DIVISIBLE)
+                year % YEAR_EVERY_CENTURY != DIVISIBLE)
             {
                 if (day > LONG_FEBRUARY_MONTH_NUM)
                 {
@@ -198,7 +200,8 @@ public class Date
      */
     public String getMonth()
     {
-        return switch (month) {
+        return switch (month)
+        {
             case JANUARY_MONTH_NUM -> "January";
             case FEBRUARY_MONTH_NUM -> "February";
             case MARCH_MONTH_NUM -> "March";
@@ -235,7 +238,7 @@ public class Date
     public String getYYYYMMDD()
     {
         if (month < MINIMUM_TEN &&
-                day < MINIMUM_TEN)
+            day < MINIMUM_TEN)
         {
             return year + "-0" + month + "-0" + day;
         }
@@ -416,10 +419,10 @@ public class Date
         sumOfDays = BASE_VALUE;
 
         if (month == JANUARY_MONTH_NUM ||
-                month == FEBRUARY_MONTH_NUM)
+            month == FEBRUARY_MONTH_NUM)
         {
             if (year % YEAR_EVERY_LEAP_YEAR == DIVISIBLE &&
-                    year % YEAR_EVERY_CENTURY != DIVISIBLE)
+                year % YEAR_EVERY_CENTURY != DIVISIBLE)
             {
                 sumOfDays += ADD_SIX;
             }
@@ -435,7 +438,7 @@ public class Date
         }
 
         if (year >= YEAR_EIGHTEEN_HUNDREDS &&
-                year < YEAR_NINETEEN_HUNDREDS)
+            year < YEAR_NINETEEN_HUNDREDS)
         {
             sumOfDays += ADD_TWO;
         }
@@ -443,15 +446,17 @@ public class Date
         yearsLeft = year % CENTURY_DIVISOR;
 
         numberOfTwelves = yearsLeft / NUMBER_OF_COMPLETE_TWELVES;
-        remainder = yearsLeft % NUMBER_OF_COMPLETE_TWELVES;
-        numberOfFours = remainder / NUMBER_OF_COMPLETE_FOURS;
+        remainder       = yearsLeft % NUMBER_OF_COMPLETE_TWELVES;
+        numberOfFours   = remainder / NUMBER_OF_COMPLETE_FOURS;
+        
         sumOfDays += numberOfTwelves + remainder + numberOfFours + day;
 
         sumOfDays += code;
 
         dayIndex = sumOfDays % DAYS_IN_WEEK;
 
-        return switch (dayIndex) {
+        return switch (dayIndex)
+        {
             case SATURDAY -> "Saturday";
             case SUNDAY -> "Sunday";
             case MONDAY -> "Monday";
@@ -468,7 +473,8 @@ public class Date
      *
      * @return Month's designated code
      */
-    public int getMonthCode() {
+    public int getMonthCode()
+    {
         final int code;
         code = switch (month)
         {

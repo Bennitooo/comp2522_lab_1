@@ -10,10 +10,10 @@ package ca.bcit.comp2522.bank;
  */
 public class Name
 {
-    private static final int MAX_NAME_LENGTH = 99;
-    private static final String FORBIDDEN_WORD = "jason";
-    private static final int BEGIN_INDEX = 0;
-    private static final int END_INDEX = 1;
+    private static final int    MAX_NAME_LENGTH = 99;
+    private static final String FORBIDDEN_WORD  = "jason";
+    private static final int    BEGIN_INDEX     = 0;
+    private static final int    END_INDEX       = 1;
 
     private final String firstName;
     private final String lastName;
@@ -31,7 +31,7 @@ public class Name
         validateName(lastName,"Last Name");
 
         this.firstName = firstName;
-        this.lastName = lastName;
+        this.lastName  = lastName;
 
     }
 
@@ -45,10 +45,10 @@ public class Name
      * @param fieldName This is the type of name it is (either First Name or Last Name)
      */
     private static void validateName(final String name,
-                             final String fieldName)
+                                    final String fieldName)
     {
         if (name == null ||
-                name.isBlank())
+            name.isBlank())
         {
             throw new IllegalArgumentException(fieldName +
                     " cannot be null or blank");
@@ -98,7 +98,8 @@ public class Name
      */
     public String getInitials()
     {
-        return "Initials: " + firstName.toUpperCase().charAt(BEGIN_INDEX) +
+        return "Initials: " +
+                firstName.toUpperCase().charAt(BEGIN_INDEX) +
                 "." +
                 lastName.toUpperCase().charAt(BEGIN_INDEX) +
                 ".";
@@ -125,14 +126,17 @@ public class Name
      */
     public String getReverseName()
     {
-        final String originalString;
+        final String        originalString;
         final StringBuilder stringBuilder;
-        final String reversedString;
+        final String        reversedString;
 
         originalString = firstName + " " + lastName;
-        stringBuilder = new StringBuilder(originalString);
+        stringBuilder  = new StringBuilder(originalString);
+        
         stringBuilder.reverse();
+        
         reversedString = stringBuilder.toString();
+        
         return "Reversed Name: " + reversedString;
     }
 }

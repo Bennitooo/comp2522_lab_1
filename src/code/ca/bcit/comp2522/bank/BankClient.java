@@ -13,10 +13,10 @@ public class BankClient
     private static final int MIN_CLIENT_ID_LENGTH = 6;
     private static final int MAX_CLIENT_ID_LENGTH = 7;
 
-    private final Name name;
-    private final Date birthDate;
-    private final Date deathDate;
-    private final Date signupDate;
+    private final Name   name;
+    private final Date   birthDate;
+    private final Date   deathDate;
+    private final Date   signupDate;
     private final String clientID;
 
     /**
@@ -36,11 +36,11 @@ public class BankClient
     {
         validateClientID(clientID);
         
-        this.name = name;
-        this.birthDate = birthDate;
+        this.name       = name;
+        this.birthDate  = birthDate;
         this.signupDate = signupDate;
-        this.clientID = clientID;
-        this.deathDate = deathDate;
+        this.clientID   = clientID;
+        this.deathDate  = deathDate;
     }
 
     /**
@@ -57,11 +57,11 @@ public class BankClient
     {
         validateClientID(clientID);
 
-        this.name = name;
-        this.birthDate = birthDate;
+        this.name       = name;
+        this.birthDate  = birthDate;
         this.signupDate = signupDate;
-        this.clientID = clientID;
-        this.deathDate = null;
+        this.clientID   = clientID;
+        this.deathDate  = null;
     }
 
     /**
@@ -70,7 +70,8 @@ public class BankClient
      */
     private static void validateClientID(final String clientID)
     {
-        if (clientID.length() < MIN_CLIENT_ID_LENGTH || clientID.length() > MAX_CLIENT_ID_LENGTH)
+        if (clientID.length() < MIN_CLIENT_ID_LENGTH ||
+            clientID.length() > MAX_CLIENT_ID_LENGTH)
         {
             throw new IllegalArgumentException("The clientID isn't the right length");
         }
